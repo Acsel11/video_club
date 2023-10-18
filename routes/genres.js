@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../controllers/users');
+const controller = require('../controllers/genres');
 
 router.get('/',controller.list);
 
@@ -22,22 +22,3 @@ router.get('/:id',controller.index);
 
 
 module.exports = router;
-
-//middle wear de enrutamiento  ' /'porque que metodo que rutay
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

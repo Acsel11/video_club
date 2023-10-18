@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../controllers/users');
+const controller = require('../controllers/movies');
 
 router.get('/',controller.list);
+
+router.patch('/actor',controller.addActor);
 
 router.post('/',controller.create);
 
@@ -21,23 +23,5 @@ router.get('/:id',controller.index);
 
 
 
+
 module.exports = router;
-
-//middle wear de enrutamiento  ' /'porque que metodo que rutay
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
