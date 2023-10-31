@@ -3,13 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 //importamos archivos de rutas de toda la aplicacion 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const directorsRouter = require('./routes/directors'); //router de directors
+const membersRouter = require('./routes/members');
 
-var app = express();
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +27,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/directors',directorsRouter);
+app.use('/members',membersRouter);
+
+const url = "mongodb://localhost:27017/video-club";
+
+mongoose.connect(url);
+
+const db = mongoose.connection;
+
+db.on('open', () => {
+  console.log("conect ok")
+});
+
+db.on('error', () => {
+  console.log("error al conectar")
+});
+
 
 
 // catch 404 and forward to error handler
