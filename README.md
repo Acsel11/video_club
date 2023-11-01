@@ -1,12 +1,6 @@
-Tarea | Tablas RESTful
-Crear API REST utilizando la siguiente tabla RESTFull:
+Tarea | Mi primera API con express + ODM
+Vamos a construir todos los servicios web relacionados con el ejemplo del video club, basado en el esquema cree para cada modelo todo su CRUD. Una vez terminado suba su proyecto a gitlab en una rama diferente a master. 
 
-GET /results/:n1/:n2 -> Sumar n1 + n2
-POST /results/ -> Multiplicar n1 * n2
-PUT /results/ -> Dividir n1 / n2
-PATCH /results/ -> Potencia n1 ^ n2
-DELETE /results/:n1/:n2 -> restar n1 - n2
-Subir liga de GitHub, GitLab o BitBucket de forma publica.
 
 Universidad Autonoma Del Estado De Chihuahua
 Axel Ricardo Moncloa Muro
