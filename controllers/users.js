@@ -1,17 +1,23 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
-function create(req, res, next) {
+//post
+async function create(req, res, next) {
     const name = req.body.name;
     const lastName = req.body.lastName;
     const email = req.body.email;
     const password = req.body.password;
+    let salt = await bcrypt.genSalt(10);
+
+    const passwordHash = await bcrypt.hash(password, salt);
 
     let user = new User({
         name: name,
         lastName: lastName,
         email: email,
-        password: password
+        password: passwordHash,
+        salt: salt
     });
 
     user.save()
@@ -23,6 +29,8 @@ function create(req, res, next) {
             obj: ex
         }));
 }
+
+
 
 function list(req, res, next) {
     let page = req.params.page ? req.params.page : 1;
@@ -117,6 +125,10 @@ function destroy(req, res, next) {
             obj: ex
         }));
 }
+
+
+
+
 
 module.exports = {
     create,

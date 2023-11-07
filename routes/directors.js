@@ -4,7 +4,6 @@ const router = express.Router();
 const controller = require('../controllers/directors');
 
 /* GET users listing. */ 
-//el orden de los controladores afecta la ejecucion (como tenemos controladores se hacen las rutas correspondientes para hacer match)
 router.post('/',controller.create);
 
 router.get('/',controller.list);
@@ -22,22 +21,3 @@ router.get('/:id',controller.index);
 
 
 module.exports = router;
-
-//middle wear de enrutamiento  ' /'porque que metodo que rutay
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
